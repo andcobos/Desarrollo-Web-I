@@ -1,5 +1,5 @@
 *{
-    background-color: antiquewhite;
+    background-color: rgb(235, 235, 235);
     margin: 6px;
     margin-bottom: 10px;
 }
@@ -12,17 +12,39 @@ body {
     text-align: center;
 }
 
+p{
+    text-align: justify;
+}
+
+
+.sinopsis .resumen-general {
+    text-align: justify;
+}
+
 h1 {
     font-family: 'Merriweather', serif;
-    font-size: 40px;
+    font-size: 48px;
     color: navy;
     text-align: center;
     margin-top: 30px;
     margin-bottom: 20px;
 }
 
+.linea {
+    background-color:black;
+    height: 2px;
+    margin-bottom: 10px;
+}
+
+.poster {
+    width: 70%; 
+    margin: auto;
+    height: auto;
+}
+
 .sinopsis p {
     text-align: center;
+    font-family: 'Tahoma', serif;
 }
 
 h2 {
@@ -32,18 +54,50 @@ h2 {
 }
 
 
-p{
-    text-align: justify;
+
+
+ol{
+    margin: 0 auto;
+    padding-left: 0;
+    width: fit-content;
 }
 
-footer{
-    color: black;
-    text-align: center;
+ul{
+    margin-bottom: 200px;
+}
 
+.elenco {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.elenco img {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+    height: 80%;
+}
+
+.link-elenco{
+    text-align: center;
+}
+
+.Spinoffs h2 {
+    color:blue;
+    
+}
+.Spinoffs h3 {
+    text-align: center;
+    font-style: italic;
 }
 
 .resumen-temporadas{
     margin-top: 10px;
+}
+
+
+.resumen-temporadas,p {
+    font-family: 'Tahoma', serif;
 }
 
 
@@ -53,4 +107,11 @@ footer{
     height: auto;
     display: block; 
     margin: 0 auto; /*Centrando las imágenes*/
+    margin-bottom: 20px;
+}
+
+footer{
+    color: black;
+    text-align: center;
+
 }
