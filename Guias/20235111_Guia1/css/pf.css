@@ -1,0 +1,56 @@
+*{
+    background-color: antiquewhite;
+    margin: 6px;
+    margin-bottom: 10px;
+}
+
+body {
+    font-family: 'Merriweather', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.sinopsis{
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 40px;
+    color: navy;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.sinopsis p {
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+p{
+    text-align: justify;
+}
+
+footer{
+    color: black;
+    text-align: center;
+
+}
+
+.resumen-temporadas{
+    margin-top: 10px;
+}
+
+
+.poster-image {
+    width: 90%; 
+    max-width: 500px; 
+    height: auto;
+    display: block; 
+    margin: 0 auto; /*Centrando las imágenes*/
+}
