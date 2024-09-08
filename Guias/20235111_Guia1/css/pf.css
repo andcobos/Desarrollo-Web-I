@@ -16,6 +16,13 @@ p{
     text-align: justify;
 }
 
+a {
+    color:purple
+}
+
+a:hover {
+    color: red;
+}
 
 .sinopsis .resumen-general {
     text-align: justify;
