@@ -61,7 +61,6 @@ section article p::first-letter {
     color: gold;
 }
 
-section article::first-line p:first-child{
+section > article:first-child p:first-line {
     text-decoration: underline;
 }
-
