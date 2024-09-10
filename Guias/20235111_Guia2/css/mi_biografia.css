@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Merriweather', sans-serif;
+    background-color: #e6f7ff;
+    color: black;
+}
+
+header{
+    text-align: center;
+    margin: 15px;
+    padding: 5px;
+}
+
+header h1 {
+    font-size: 30px;
+    color: #4A90E2;
+    font-family: 'Dancing Script', cursive;
+    font-style: bold; 
+}
+
+header h2 {
+    font-size: 40px;
+    font-family: 'Merriweather', sans-serif;
+}
+
+body {
+    margin:0 auto;
+}
+
+/*Colores
+- 4A90E2 AZUL
+- e6f7ff CELESTE
+- 50C878 VERDE
+- F5A623 NARANJA
+- FF595E ROJO PASTEL
+- 6C757D GRIS MEDIO
+- 333333 GRIS OSCURO
+*/
