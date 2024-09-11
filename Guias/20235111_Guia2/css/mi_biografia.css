@@ -14,15 +14,15 @@ header{
 }
 
 header h1 {
-    font-size: 30px;
-    color: #4A90E2;
-    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    color: #0757b3;
+    font-family: 'Varela Round';
     font-style: bold; 
 }
 
 header h2 {
-    font-size: 40px;
-    font-family: 'Merriweather', sans-serif;
+    font-size: 20px;
+    color: #333333
 }
 
 body {
