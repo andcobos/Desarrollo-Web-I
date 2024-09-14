@@ -1,23 +1,27 @@
 *{
     margin: 0;
-    padding: 0;
+    padding: 2px;
     box-sizing: border-box;
     font-family: 'Merriweather', sans-serif;
-    background-color: #e6f7ff;
     color: black;
 }
 
 header{
     text-align: center;
-    margin: 15px;
-    padding: 5px;
+    margin: 0 auto;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 header h1 {
-    font-size: 50px;
+    font-size: 80px;
     color: #0757b3;
     font-family: 'Varela Round';
     font-style: bold; 
+}
+
+hr {
+    border-color: #333333;
 }
 
 header h2 {
@@ -28,6 +32,92 @@ header h2 {
 body {
     margin:0 auto;
 }
+
+.texto {
+    margin: 0 auto;
+    font-size: 20px;
+    text-align: justify;
+    padding: 3%;
+    background-color: #e6f7ff;
+}
+
+.pasatiempos {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fcf5ff;
+}
+.pasatiempos h2{
+    text-align: center;
+    font-size: 3rem;
+    color: #4A90E2;
+    padding: 1rem;
+    font-family: 'Poppins';
+}
+
+.pasatiempos article.Musica h3 {
+    color: red; 
+}
+
+.pasatiempos article.Deporte h3 {
+    color: rgb(14, 179, 2); 
+}
+
+.pasatiempos article.Animales h3 {
+    color: rgb(153, 10, 255); 
+}
+
+.pasatiempos article.Fotografia h3 {
+    color: rgb(9, 141, 167); 
+}
+
+.pasatiempos article.Videojuegos h3 {
+    color: rgb(165, 35, 59); 
+}
+
+.pasatiempos article {
+    text-align: center;
+}
+
+.pasatiempos.Animales.container article h5:nth-last-child() {
+    color:#677a8f;
+}
+
+
+.pasatiempos article h3 {
+    font-size: 30px;
+    font-family: 'Varela Round';
+    padding: 5px;
+
+}
+
+.pasatiempos article p {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 2%;
+}
+
+.pasatiempos img{
+    width: 20%;
+    height: auto;
+    object-fit: fill;
+}
+
+.pasatiempos h4 {
+    font-size: 22px;
+    font-family: 'Poppins';
+
+}
+
+.pasatiempos .Fotografia img{
+    width: 30%;
+}
+
+.pasatiempos .Videojuegos img{
+    width: 50%;
+}
+
+
+
 
 /*Colores
 - 4A90E2 AZUL
