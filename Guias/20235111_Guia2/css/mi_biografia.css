@@ -110,7 +110,9 @@ body {
 
 .pasatiempos .Fotografia img{
     width: 30%;
+    height: 286px;
 }
+
 
 .pasatiempos .Videojuegos img{
     width: 50%;
@@ -121,11 +123,12 @@ body {
 }
 
 
-.lista_datos li + li {
+ul > li {
     text-align: justify;
     font-size: 20px;
     color: navy;
 }
+
 
 
 
