@@ -1,0 +1,53 @@
+/* Fuentes */
+@import url(http://fonts.googleapis.com/css?family=Didact+Gothic);
+*{
+    font-family: 'Didact Gothic', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*Estilos iniciales*/
+body{
+    margin: 0px;
+    background-color: #BBB;
+    color: #444;
+}
+
+h1{
+    font-size: 1.3em;
+    text-align: center;
+    color: #464d52;
+}
+
+/*Parte Superior*/
+#superior{
+    width: 100%;
+    padding: 30px 0px;
+    background-color: #464d52;
+
+}
+
+#imgDesc img{
+    float: left;
+    box-sizing: border-box;
+}
+
+#encabezado{
+    margin: 0px;
+    width: 960px;
+}
+
+#descripcion{
+    width: 360px;
+    height: 360px;
+    background-color: #888;
+    float: left;
+}
+
+#descripcion p{
+    margin: 20px;
+    color:white;
+    font-weight: bold;
+    line-height: 180%;
+    text-align: justify;
+}
