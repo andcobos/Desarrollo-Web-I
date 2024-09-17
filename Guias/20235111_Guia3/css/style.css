@@ -42,6 +42,8 @@ section {
     margin: 0 auto;
     width: 90%;
     overflow: hidden;
+    /*position: relative;*/
+    position: relative;
 }
 
 section article {
@@ -56,6 +58,23 @@ section article {
     overflow: hidden;
 }
 
+section article:nth-child(2){
+    background-color: rgba(70, 130, 180, 0.9);
+    position: static; /*Cambio de absoluto a estatico*/
+    left: 100px; /*se aleja de la izquierda*/
+    top: 50px; /*se aleja de el top, bajando la caja*/
+    /*40. */
+    /*visibility: hidden; Con este, la caja desaparece completamente, dejando el espacio en blanco entre el elemento 1 y 3*/
+    display: none; /*Con este, desaparece toda la caja pero la que le sigue ocupa su lugar. Al final queda un espacio libre.*/
+/*35. Con la posición relativa, las otras cajas se quedan en el mismo lugar, no toman el espacio libre del
+segundo artículo.*/
+
+/*36. El posicionamiento relativo mueve las cajas en relación con su posición original. Las demás cajas no se mueven
+ni ocupan su lugar y el movimiento hacia izquierda y top son diferentes. El posicionamiento absoluto hace que el elemento 
+al que afecta salga de su posición original y los demás elementos pueden tomar su lugar. En el absoluto el objeto que se mueve,
+no lo cuentan. */
+}
+
 section article img{
     height: 180px;
     max-width: 80%;
@@ -64,5 +83,9 @@ section article img{
 }
 
 section article h3{
-    
+    text-align: center;
+}
+
+footer div {
+    padding-top: 1rem;
 }
