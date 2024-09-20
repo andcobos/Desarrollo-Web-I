@@ -14,12 +14,20 @@ header {
     background: #16A085;
     height: 130px;
     overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
 }
 
 footer {
     margin-top: 20px;
     background: #16A085;
     height: 50px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    bottom: 0;
 }
 
 header div, footer div {
@@ -44,6 +52,7 @@ section {
     overflow: hidden;
     /*position: relative;*/
     position: relative;
+    padding: 150px 0px
 }
 
 section article {
