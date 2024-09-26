@@ -1,33 +1,117 @@
-#foda h2 {
+h1{
+    margin: 0 auto;
+    padding: 10% auto;
+    color: #0e022e;
     text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
 }
 
-/* Estilos para las divisiones del FODA */
+h1 p{
+    color: #0f5875;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    color:#666;
+}
+
+#materia{
+    border: 3px solid #0d0086;
+    padding: 1% 2% ;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgba(20, 22, 167, 0.3);
+    background-color: #ebebeb;
+}
+
+#materia h2{
+    text-align: center;
+    font-size: 28px;
+}
+
+#contenido_materia {
+    list-style-type: circle;
+    padding-left: 2px; 
+    font-family: 'Plus Jakarta Sans';
+}
+
+ul.lista_ej {
+    list-style-type: circle;
+    padding-left: 2px; 
+}
+
+
+
 #foda {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 10px; /* Espacio entre las divisiones */
+    gap: 20px;
+}
+
+#foda h2 {
+    text-align: center;
+    color: #ff5722;
+    font-size: 30px;
+    margin-bottom: 20px;
+    width: 100%; 
 }
 
 #foda div {
-    flex: 1 1 22%; /* Hace que cada div ocupe el 22% del ancho del contenedor */
-    border: 1px solid #ccc;
+    flex: 1 1 22%;
     padding: 15px;
     box-sizing: border-box;
-    background-color: #f9f9f9;
-}
-
-/* Estilos adicionales para ajustar el contenido */
-#foda div h3 {
     text-align: center;
-    font-size: 18px;
-    margin-bottom: 10px;
+    color: rgb(0, 0, 0); 
 }
 
-#foda div p {
-    font-size: 14px;
-    line-height: 1.6;
+#foda p{
+    color:#0e022e;
+    text-align: justify;
+    padding: 1px auto;
+    font-family: 'Plus Jakarta Sans';
 }
+
+#foda .fortalezas {
+    background-color: #32c5ff; 
+    box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+#foda .oportunidades {
+    background-color: #2efa83; 
+    box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+#foda .debilidades {
+    background-color: #ff77d6;
+    box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+#foda .amenazas {
+    background-color: #ffd900; 
+    box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+#guias {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    gap: 20px;
+}
+
+#guias h2 {
+    width: 100%;
+    text-align: center;
+    margin: 2%;
+    margin-top: 5%; 
+    font-size: 32px; 
+}
+.guia {
+    box-sizing: border-box; 
+    padding: 15px; 
+    margin-bottom: 20px; 
+}
+
