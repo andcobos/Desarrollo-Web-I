@@ -61,7 +61,7 @@ nav ul li a#galeria{
 }
 
 #imgDesc img{ 
-    width: 62.5%; /* 600/960= 62.5% */ 
+    width: 60%;
     height: auto; 
     float: left; 
 }

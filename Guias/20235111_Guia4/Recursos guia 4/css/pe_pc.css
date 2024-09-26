@@ -1,0 +1,33 @@
+#foda h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para las divisiones del FODA */
+#foda {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre las divisiones */
+}
+
+#foda div {
+    flex: 1 1 22%; /* Hace que cada div ocupe el 22% del ancho del contenedor */
+    border: 1px solid #ccc;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+/* Estilos adicionales para ajustar el contenido */
+#foda div h3 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#foda div p {
+    font-size: 14px;
+    line-height: 1.6;
+}
