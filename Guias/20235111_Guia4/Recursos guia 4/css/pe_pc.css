@@ -1,18 +1,27 @@
-h1{
-    margin: 0 auto;
-    padding: 10% auto;
-    color: #0e022e;
-    text-align: center;
-}
-
-h1 p{
-    color: #0f5875;
-}
-
 p {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.5;
     color:#666;
+}
+
+h1{
+    font-size: 68px;
+}
+
+.inf{
+    font-size: 40px;
+}
+
+h2{
+    font-size: 32px;
+}
+
+#guia h3{
+    font-size: 34px;
+}
+
+p{
+    font-size: 26px;
 }
 
 #materia{
