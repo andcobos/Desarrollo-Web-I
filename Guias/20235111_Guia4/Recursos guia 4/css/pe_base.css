@@ -17,6 +17,18 @@ h1{
     text-align: center;
 }
 
+ #titulo_materia h2{
+    text-align: center;
+ }
+
+h1 p{
+    color: #0f5875;
+}
+
+#titulo_materia h2{
+    text-align: center;
+}
+
 p{
     font-family: 'Montserrat Alternates';
 }
@@ -30,8 +42,9 @@ p{
     text-align: justify;
 }
 
-h1 p{
-    color: #0f5875;
+.guia{
+    padding: 2% 10%;
+    margin: 0 auto;
 }
 
 a {

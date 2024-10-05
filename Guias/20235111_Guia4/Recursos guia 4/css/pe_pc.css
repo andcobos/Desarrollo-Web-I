@@ -89,11 +89,7 @@ ol{
     margin-top: 5%; 
     font-size: 32px; 
 }
-.guia {
-    box-sizing: border-box; 
-    padding: 15px; 
-    margin-bottom: 20px; 
-}
+
 
 /*Contendor de Guias*/
 #guias{
