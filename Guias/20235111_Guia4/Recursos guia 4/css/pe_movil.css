@@ -1,0 +1,257 @@
+p {
+    font-size: 20px;
+    line-height: 1.5;
+    color:#666;
+    text-align: justify;
+}
+
+h1{
+    font-size: 30px;
+}
+
+h2{
+    font-size: 26px;
+}
+
+.inf{
+    font-size: 20px;
+}
+
+
+#img{
+    max-width: 800px;
+}
+
+p{
+    font-size: 14px;
+}
+
+.contenido{
+    padding: 1% 5%;
+    margin: 2% 5%;
+    border: 0.5px solid black;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgba(27, 167, 227, 0.3);
+    background-color: #ebebeb;
+    border-color: #0e022e;
+}
+
+#header .titulobio{
+    color: #ff5722;
+    font-family: 'Concert One';
+    font-size: 24px;
+    padding-top: 1%;
+ }
+
+.guia h2{
+    font-size: 10px;
+}
+
+/*DESCRIPCION Y MATERIA*/
+#materia h3{
+    font-family: 'Concert One';
+    font-size: 28px;
+    color: #0bb341;
+}
+
+#contenido_materia {
+    list-style-type: circle;
+    padding-left: 3%; 
+    font-family: 'Plus Jakarta Sans';
+    font-size: 34px;
+}
+
+#materia #contenido_materia li{
+    font-family: 'Concert One';
+    color: #58545a;
+    font-size: 20px;
+}
+
+ol{
+    list-style-type: circle;
+    font-size: 28px;
+    font-family: 'Concert One';
+}
+
+/*GUIAS*/
+.guia{
+    padding-top: 1px;
+}
+
+#guias {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    gap: 20px;
+}
+
+#guias h2 {
+    width: 100%;
+    text-align: center;
+    margin-top: 5%; 
+    font-size: 26px;
+    margin-bottom: 1px;
+    color: #ff5722;
+}
+
+
+
+/*Titulos de guia 1, 2, 3, y 4*/
+#guias .guia h3{
+    font-size: 22px;
+    font-family:'Verdana';
+    text-align: center;
+}
+
+/*Lista de Ejercicios*/
+ol.lista_ej {
+    list-style-type: circle;
+    padding-left: 10%; 
+    padding-bottom: 3%;
+    font-size: 20px;
+}
+
+/*FODA*/
+#foda {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px;
+    padding-bottom: 3%;
+    padding-left: 10%; 
+    padding-right: 10%; 
+}
+
+#foda h2 {
+    text-align: center;
+    color: #ff5722;
+    font-size: 58px;
+    font-family: 'Concert One';
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Titulos de foda */
+#foda h3 {
+    font-family: 'Montserrat Alternates';
+    color: rgb(7, 1, 86);
+    font-size: 22px;
+}
+
+#foda div {
+    flex: 1 1 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    margin: 0 10%; 
+}
+
+#foda p {
+    color: #0e022e;
+    text-align: justify;
+    padding: 1% 3%;
+    font-family: 'Plus Jakarta Sans';
+}
+
+/* Estilos de cada bloque */
+#foda .fortalezas {
+    background-color: #32c5ff;
+    box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+#foda .oportunidades {
+    background-color: #2efa83;
+    box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+#foda .debilidades {
+    background-color: #ff77d6;
+    box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+#foda .amenazas {
+    background-color: #ffd900;
+    box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+
+/*Retroalimentacion del Curso*/
+#retroalimentacion{
+    padding: 2% 10%;
+}
+
+#retroalimentacion h2{
+    text-align: center;
+    font-size: 30px;
+    color:#ff5722;
+}
+
+#retroalimentacion h3{
+    font-size: 20px;
+    color: #040493;
+    font-family: 'Concert One';
+}
+
+#retroalimentacion p{
+    font-size: 16px;
+}
+
+#retroalimentacion h3{
+    font-size: 24px;
+    text-align: center;
+    
+}
+
+#aprendizaje h2{
+    font-size: 30px;
+    margin: 0 auto;
+    padding-top: 5%;
+}
+
+#aprendizaje .aprcont {
+    display: flex;
+    flex-direction: column; 
+    gap: 5%;
+    padding: 1% 5%;
+}
+
+
+.aprcont h3 {
+    font-family: 'Concert One';
+    font-size: 30px;
+    color: #1f35d8;
+}
+
+#aprendizaje .recursos,
+#aprendizaje .planes-futuros {
+    flex: 1;
+    padding: 1px 10px;
+    max-width: 100%; 
+}
+
+.planes-futuros h3{
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.aprcont li, p {
+    font-size: 14px;
+    color: #0e022e;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+#aprendizaje ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-family: 'Montserrat Alternates';
+    font-size: 24px;
+}
+
+#footer{
+    font-size: 10px;
+}
