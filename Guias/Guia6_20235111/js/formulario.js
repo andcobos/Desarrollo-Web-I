@@ -92,26 +92,26 @@ const addPaciente = function () {
 // Función que imprime la ficha de los pacientes registrados
 function imprimirFilas() {
     let $fila = "";
-    let contador = 1;
+    let contador = 0;
 
     arrayPaciente.forEach((element) => {
         $fila += `<tr>
-                            <td scope="row" class="text-center fw-bold">${contador}</td>
-                            <td>${element[0]}</td>
-                            <td>${element[1]}</td>
-                            <td>${element[2]}</td>
-                            <td>${element[3]}</td>
-                            <td>${element[4]}</td>
-                            <td>${element[5]}</td>
-                            <td>
-                                <button id="idBtnEditar${contador}" type="button" class="btn btn-primary" alt="Eliminar">
-                                    <i class="bi bi-pencil-square"></i>
-                                </button>
-                                <button id="idBtnEliminar${contador}" type="button" class="btn btn-danger" alt="Editar">
-                                    <i class="bi bi-trash3-fill"></i>
-                                </button>
-                            </td>
-                        </tr>`;
+                    <td scope="row" class="text-center fw-bold">${contador + 1}</td>
+                    <td>${element[0]}</td>
+                    <td>${element[1]}</td>
+                    <td>${element[2]}</td>
+                    <td>${element[3]}</td>
+                    <td>${element[4]}</td>
+                    <td>${element[5]}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" onclick="editarPaciente(${contador})">
+                            <i class="bi bi-pencil-square"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger" onclick="eliminarPaciente(${contador})">
+                            <i class="bi bi-trash3-fill"></i>
+                        </button>
+                    </td>
+                </tr>`;
         contador++;
     });
     return $fila;
@@ -119,23 +119,52 @@ function imprimirFilas() {
 
 const imprimirPacientes = () => {
     let $table = `<div class="table-responsive">
-                                        <table class="table table-striped table-hover table-bordered">
-                                            <tr>
-                                                <th scope="col" class="text-center" style="width:5%;">#</th>
-                                                <th scope="col" class="text-center" style="width:15%;">Nombre</th>
-                                                <th scope="col" class="text-center" style="width:15%;">Apellido</th>
-                                                <th scope="col" class="text-center" style="width:10%;">Fecha nacimiento</th>
-                                                <th scope="col" class="text-center" style="width:10%;">Sexo</th>
-                                                <th scope="col" class="text-center" style="width:10%;">País</th>
-                                                <th scope="col" class="text-center" style="width:25%;">Dirección</th>
-                                                <th scope="col" class="text-center" style="width:10%;">Opciones</th>
-                                            </tr>
-                                            ${imprimirFilas()}
-                                        </table>
-                                    </div>
-                                `;
+                    <table class="table table-striped table-hover table-bordered">
+                        <tr>
+                            <th scope="col" class="text-center" style="width:5%;">#</th>
+                            <th scope="col" class="text-center" style="width:15%;">Nombre</th>
+                            <th scope="col" class="text-center" style="width:15%;">Apellido</th>
+                            <th scope="col" class="text-center" style="width:10%;">Fecha nacimiento</th>
+                            <th scope="col" class="text-center" style="width:10%;">Sexo</th>
+                            <th scope="col" class="text-center" style="width:10%;">País</th>
+                            <th scope="col" class="text-center" style="width:25%;">Dirección</th>
+                            <th scope="col" class="text-center" style="width:10%;">Opciones</th>
+                        </tr>
+                        ${imprimirFilas()}
+                    </table>
+                  </div>`;
     document.getElementById("idTablaPacientes").innerHTML = $table;
 };
+
+// Función que elimina un paciente del array y actualiza la tabla
+function eliminarPaciente(index) {
+    // Eliminar paciente por índice
+    arrayPaciente.splice(index, 1);
+    // Actualizar la tabla de pacientes después de la eliminación
+    imprimirPacientes();
+}
+
+// Función que edita un paciente del array y carga la información en el formulario
+function editarPaciente(index) {
+    // Obtener datos del paciente seleccionado
+    const paciente = arrayPaciente[index];
+
+    // Cargar los datos en el formulario
+    inputNombre.value = paciente[0];
+    inputApellido.value = paciente[1];
+    inputFechaNacimiento.value = paciente[2];
+    if (paciente[3] === "Hombre") {
+        inputRdMasculino.checked = true;
+    } else {
+        inputRdFemenino.checked = true;
+    }
+    cmbPais.value = [...cmbPais.options].find(option => option.text === paciente[4]).value;
+    inputDireccion.value = paciente[5];
+
+    // Eliminar paciente del array para que se pueda editar al hacer clic en "Guardar Datos"
+    arrayPaciente.splice(index, 1);
+}
+
 
 // Contador global de los option correspondiente al select (cmb) pais
 let contadorGlobalOption = cmbPais.children.length;
