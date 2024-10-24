@@ -13,7 +13,7 @@ const validarNumero = function (e) {
     podrá observar que al intentar teclar una letra u otro caracter diferente
     a un número este no se escribe en el campo
     */
-    if (!validar.test(tecla)) e.preventDefault();
+    if (!validar.test(tecla)) e.preventDefault(); //si la tecla no cumple la expresion regular, entonces evita que se muestre, cancela
 };
 
 //definiendo el evento keypress para el campo

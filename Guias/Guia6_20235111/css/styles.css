@@ -46,3 +46,7 @@ main {
 .colum-container {
     width: calc(100% - 280px);
 }
+
+.button-spacing {
+    margin-top: 1rem;
+}

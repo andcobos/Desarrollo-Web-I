@@ -32,34 +32,41 @@ function generarEstudiantes() {
             );
             convertir = parseFloat(calificacion);
         } while (isNaN(convertir) || convertir < 0 || convertir > 10);
+
+        arrayEstudiante.push([estudiante, parseFloat(calificacion).toFixed(2)]);
   
         // Asignando los valores al arreglo
-        arrayEstudiante[contador - 1] = new Array(
-            estudiante,
-            parseFloat(calificacion).toFixed(2)
-        );
+       // arrayEstudiante[contador - 1] = new Array(
+        //    estudiante,
+        //    parseFloat(calificacion).toFixed(2) //devuelve un string con el toFixed
+       // );
+
         contador++;
     }
   
+    
+
     //Recorriendo el arreglo con for..of
     //Verificaremos cual es el promedio de las calificaciones
     //y cual de los estudiantes posee la calificación más alta
+    
     let calificacionAlta = 0,
         promedio = 0,
-        posicion = 0;
+        mejorEstudiante = '';
   
     let listado = "<h3>Listado de estudiantes registrados</h3>";
     listado += "<ol>";
     for (let indice of arrayEstudiante) {
         let nombre = indice[0];
-        let nota = indice[1];
+        let nota = parseFloat(indice[1]);
   
         //Imprimiendo lista de estudiantes
         listado += `<li><b>Nombre:</b> ${nombre} - <b>Calificación:</b> ${nota}</li>`;
   
         //Verificación de calificación más alta
         if (nota > calificacionAlta) {
-            posicion = indice;
+            calificacionAlta = nota;
+            mejorEstudiante = nombre;
         }
   
         //Calculando el promedio
@@ -68,7 +75,7 @@ function generarEstudiantes() {
     listado += "</ol>";
     promedio = parseFloat(promedio / arrayEstudiante.length).toFixed(2);
     listado += `<p><b>Promedio de calificaciones:</b> ${promedio}</p>`;
-    listado += `<p><b>Estudiante con mejor calificación:</b> ${posicion[0]}</p>`;
+    listado += `<p><b>Estudiante con mejor calificación:</b> ${mejorEstudiante}</p>`;
   
     //Imprimiendo resultado
     containerEstudiantes.innerHTML = listado;
