@@ -60,6 +60,10 @@ const addPaciente = function () {
     let pais = cmbPais.value;
     let labelPais = cmbPais.options[cmbPais.selectedIndex].text;
     let direccion = inputDireccion.value;
+    let dui = document.getElementById("idTxtDUI").value;
+    let nit = document.getElementById("idTxtNIT").value;
+    let edad = document.getElementById("idTxtEdad").value;
+    let correo = document.getElementById("idTxtCorreo").value;
 
     if (
         nombre != "" &&
@@ -67,11 +71,15 @@ const addPaciente = function () {
         fechaNacimiento != "" &&
         sexo != "" &&
         pais != 0 &&
-        direccion != ""
+        direccion != "" &&
+        dui != "" &&
+        nit != "" &&
+        edad != "" &&
+        correo != ""
     ) {
-        // Agregando información al arreglo paciente
+        // Agregando información al arreglo paciente incluyendo los nuevos campos
         arrayPaciente.push(
-            new Array(nombre, apellido, fechaNacimiento, sexo, labelPais, direccion)
+            new Array(nombre, apellido, fechaNacimiento, sexo, labelPais, direccion, dui, nit, edad, correo)
         );
 
         // Asignando un mensaje a nuestra notificación
@@ -103,6 +111,11 @@ function imprimirFilas() {
                     <td>${element[3]}</td>
                     <td>${element[4]}</td>
                     <td>${element[5]}</td>
+                    <td>${element[6]}</td>
+                    <td>${element[7]}</td>
+                    <td>${element[8]}</td>
+                    <td>${element[9]}</td>
+                    <td>${element[10]}</td>
                     <td>
                         <button type="button" class="btn btn-primary" onclick="editarPaciente(${contador})">
                             <i class="bi bi-pencil-square"></i>
@@ -122,13 +135,16 @@ const imprimirPacientes = () => {
                     <table class="table table-striped table-hover table-bordered">
                         <tr>
                             <th scope="col" class="text-center" style="width:5%;">#</th>
-                            <th scope="col" class="text-center" style="width:15%;">Nombre</th>
-                            <th scope="col" class="text-center" style="width:15%;">Apellido</th>
-                            <th scope="col" class="text-center" style="width:10%;">Fecha nacimiento</th>
-                            <th scope="col" class="text-center" style="width:10%;">Sexo</th>
+                            <th scope="col" class="text-center" style="width:10%;">Nombre</th>
+                            <th scope="col" class="text-center" style="width:10%;">Apellido</th>
+                            <th scope="col" class="text-center" style="width:10%;">Fecha Nacimiento</th>
+                            <th scope="col" class="text-center" style="width:5%;">Sexo</th>
                             <th scope="col" class="text-center" style="width:10%;">País</th>
-                            <th scope="col" class="text-center" style="width:25%;">Dirección</th>
-                            <th scope="col" class="text-center" style="width:10%;">Opciones</th>
+                            <th scope="col" class="text-center" style="width:20%;">Dirección</th>
+                            <th scope="col" class="text-center" style="width:10%;">DUI</th>
+                            <th scope="col" class="text-center" style="width:15%;">NIT</th>
+                            <th scope="col" class="text-center" style="width:5%;">Edad</th>
+                            <th scope="col" class="text-center" style="width:15%;">Correo Electrónico</th>
                         </tr>
                         ${imprimirFilas()}
                     </table>
