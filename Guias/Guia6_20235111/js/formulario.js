@@ -7,6 +7,7 @@ const inputRdFemenino = document.getElementById("idRdFemenino");
 const cmbPais = document.getElementById("idCmbPais");
 const inputDireccion = document.getElementById("idTxtDireccion");
 const inputNombrePais = document.getElementById("idNombrePais");
+const inputCarnet = document.getElementById("idCarnet");
 
 const buttonAgregarPaciente = document.getElementById("idBtnAgregar");
 const buttonLimpiarPaciente = document.getElementById("idBtnLimpiar");
@@ -33,7 +34,8 @@ const regexPatterns = {
     dui: /^\d{8}-\d{1}$/,
     nit: /^\d{4}-\d{6}-\d{3}-\d{1}$/,
     edad: /^\d{1,3}$/,
-    correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/ 
+    correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    carnet: /^[A-Za-z]{2}\d{3}$/
 };
 
 const validarCampo = (input, regex) => {
@@ -55,7 +57,7 @@ document.getElementById("idTxtDUI").addEventListener("input", () => validarCampo
 document.getElementById("idTxtNIT").addEventListener("input", () => validarCampo(document.getElementById("idTxtNIT"), regexPatterns.nit));
 document.getElementById("idTxtEdad").addEventListener("input", () => validarCampo(document.getElementById("idTxtEdad"), regexPatterns.edad));
 document.getElementById("idTxtCorreo").addEventListener("input", () => validarCampo(document.getElementById("idTxtCorreo"), regexPatterns.correo));
-
+document.getElementById("idTxtCarnet").addEventListener("input", () => validarCampo(document.getElementById("idTxtCarnet"), regexPatterns.carnet));
 
 /*
 Creando una función para que limpie el formulario
@@ -77,6 +79,7 @@ const limpiarForm = () => {
     document.getElementById("idTxtNIT").value = "";
     document.getElementById("idTxtEdad").value = "";
     document.getElementById("idTxtCorreo").value = "";
+    document.getElementById("idTxtCarnet").value= "";
 
     inputNombre.focus();
 };
@@ -102,6 +105,7 @@ const addPaciente = function () {
     let nit = document.getElementById("idTxtNIT").value;
     let edad = document.getElementById("idTxtEdad").value;
     let correo = document.getElementById("idTxtCorreo").value;
+    let carnet = document.getElementById("idTxtCarnet").value;
 
     if (
         nombre != "" &&
@@ -114,10 +118,11 @@ const addPaciente = function () {
         nit != "" &&
         edad != "" &&
         correo != ""
+ 
     ) {
         // Agregando información al arreglo paciente incluyendo los nuevos campos
         arrayPaciente.push(
-            new Array(nombre, apellido, fechaNacimiento, sexo, labelPais, direccion, dui, nit, edad, correo)
+            new Array(nombre, apellido, fechaNacimiento, sexo, labelPais, direccion, dui, nit, edad, correo, carnet)
         );
 
         // Asignando un mensaje a nuestra notificación
@@ -153,6 +158,7 @@ function imprimirFilas() {
                     <td>${element[7]}</td>
                     <td>${element[8]}</td>
                     <td>${element[9]}</td>
+                    <td>${element[10]}</td>
                     <td>
                         <button type="button" class="btn btn-primary" onclick="editarPaciente(${contador})">
                             <i class="bi bi-pencil-square"></i>
@@ -182,6 +188,7 @@ const imprimirPacientes = () => {
                             <th scope="col" class="text-center" style="width:15%;">NIT</th>
                             <th scope="col" class="text-center" style="width:5%;">Edad</th>
                             <th scope="col" class="text-center" style="width:15%;">Correo Electrónico</th>
+                            <th scope="col" class="text-center" style="width:15%;">Carnet</th>
                         </tr>
                         ${imprimirFilas()}
                     </table>
