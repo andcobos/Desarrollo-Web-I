@@ -24,6 +24,39 @@ const idModal = document.getElementById("idModal");
 // Arreglo global de pacientes
 let arrayPaciente = [];
 
+
+// Agrego expresiones regulares 
+const regexPatterns = {
+    nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, 
+    apellido: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, 
+    fechaNacimiento: /^\d{4}-\d{2}-\d{2}$/, 
+    dui: /^\d{8}-\d{1}$/,
+    nit: /^\d{4}-\d{6}-\d{3}-\d{1}$/,
+    edad: /^\d{1,3}$/,
+    correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/ 
+};
+
+const validarCampo = (input, regex) => {
+    if (!regex.test(input.value)) {
+        input.classList.add("is-invalid"); // Añadir clase de error
+        return false;
+    } else {
+        input.classList.remove("is-invalid"); // Remover clase de error
+        return true;
+    }
+};
+
+
+[inputNombre, inputApellido, inputFechaNacimiento].forEach((input, index) => {
+    const regexKey = ['nombre', 'apellido', 'fechaNacimiento'][index];
+    input.addEventListener("input", () => validarCampo(input, regexPatterns[regexKey]));
+});
+document.getElementById("idTxtDUI").addEventListener("input", () => validarCampo(document.getElementById("idTxtDUI"), regexPatterns.dui));
+document.getElementById("idTxtNIT").addEventListener("input", () => validarCampo(document.getElementById("idTxtNIT"), regexPatterns.nit));
+document.getElementById("idTxtEdad").addEventListener("input", () => validarCampo(document.getElementById("idTxtEdad"), regexPatterns.edad));
+document.getElementById("idTxtCorreo").addEventListener("input", () => validarCampo(document.getElementById("idTxtCorreo"), regexPatterns.correo));
+
+
 /*
 Creando una función para que limpie el formulario
 siempre que se cargue la página o cuando se presione
@@ -39,6 +72,11 @@ const limpiarForm = () => {
     cmbPais.value = 0;
     inputDireccion.value = "";
     inputNombrePais.value = "";
+
+    document.getElementById("idTxtDUI").value = "";
+    document.getElementById("idTxtNIT").value = "";
+    document.getElementById("idTxtEdad").value = "";
+    document.getElementById("idTxtCorreo").value = "";
 
     inputNombre.focus();
 };
@@ -115,7 +153,6 @@ function imprimirFilas() {
                     <td>${element[7]}</td>
                     <td>${element[8]}</td>
                     <td>${element[9]}</td>
-                    <td>${element[10]}</td>
                     <td>
                         <button type="button" class="btn btn-primary" onclick="editarPaciente(${contador})">
                             <i class="bi bi-pencil-square"></i>
