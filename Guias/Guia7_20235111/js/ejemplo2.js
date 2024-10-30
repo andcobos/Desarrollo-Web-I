@@ -1,99 +1,107 @@
-// Obteniendo la referencia de los elementos
-// por medio de arreglos asociativos
-// aquí se está utilizando el atributo name de cada elemento
-const formulario = document.forms["frmRegistro"];
-const button = document.forms["frmRegistro"].elements["btnRegistro"];
+document.addEventListener('DOMContentLoaded', function () {
+    const formulario = document.forms["frmRegistro"];
+    const button = formulario.elements["btnRegistro"];
+    const modal = new bootstrap.Modal(document.getElementById("idModal"), {});
+    const bodyModal = document.getElementById("idBodyModal");
 
-// CREANDO MODAL CON BOOTSTRAP
-const modal = new bootstrap.Modal(document.getElementById("idModal"), {});
+    button.onclick = () => {
+        if (validarFormulario()) {
+            recorrerFormulario();
+        }
+    };
 
-// OBTENIENDO LA REFERENCIA DEL CUERPO DEL MODAL
-// PARA IMPRIMIR EL RESULTADO
-const bodyModal = document.getElementById("idBodyModal");
+    function validarFormulario() {
+        const nombre = formulario["idNombre"].value.trim();
+        const apellidos = formulario["idApellidos"].value.trim();
+        const fechaNac = formulario["idFechaNac"].value;
+        const correo = formulario["idCorreo"].value.trim();
+        const password = formulario["idPassword"].value;
+        const passwordRepetir = formulario["idPasswordRepetir"].value;
+        const pais = formulario["idCmPais"].value;
+        const intereses = document.querySelectorAll('input[type="checkbox"]:checked');
+        const carreraSeleccionada = document.querySelector('input[name="idRdCarrera"]:checked');
 
-// Recorrer el formulario
-const recorrerFormulario = function () {
-    let totText = 0;
-    let totRadio = 0;
-    let totCheck = 0;
-    let totDate = 0;
-    let totSelect = 0;
-    let totFile = 0;
-    let totPass = 0;
-    let totEmail = 0;
+        if (!nombre || !apellidos || !fechaNac || !correo || !password || !passwordRepetir) {
+            alert('Por favor, complete todos los campos obligatorios.');
+            return false;
+        }
 
-    // Recorriendo elementos del formulario
-    let elementos = formulario.elements;
-    let totalElementos = elementos.length;
+        const fechaNacimiento = new Date(fechaNac);
+        const fechaActual = new Date();
+        if (fechaNacimiento > fechaActual) {
+            alert('La fecha de nacimiento no puede ser mayor a la fecha actual.');
+            return false;
+        }
 
-    for (let index = 0; index < totalElementos; index++) {
-        // Accediendo a cada hijo del formulario
-        let elemento = elementos[index];
+        const regexCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!regexCorreo.test(correo)) {
+            alert('Por favor, ingrese un correo electrónico válido.');
+            return false;
+        }
 
-        // verificando el tipo de control en el formulario
-        let tipoElemento = elemento.type;
-        // verificando el tipo de nodo
-        let tipoNode = elemento.nodeName;
-    
-        // Contabilizando el total de INPUT TYPE = TEXT
-        if (tipoElemento == "text" && tipoNode == "INPUT") {
-            console.log(elemento);
-            totText++;
+        if (password !== passwordRepetir) {
+            alert('Las contraseñas no coinciden.');
+            return false;
         }
-        // Contabilizando el total de INPUT TYPE = PASSWORD
-        else if (tipoElemento == "password" && tipoNode == "INPUT") {
-            console.log(elemento);
-            totPass++;
+
+        if (intereses.length === 0) {
+            alert('Seleccione al menos un interés.');
+            return false;
         }
-        // Contabilizando el total de INPUT TYPE = EMAIL
-        else if (tipoElemento == "email" && tipoNode == "INPUT") {
-            console.log(elemento);
-            totEmail++;
+
+        if (!carreraSeleccionada) {
+            alert('Por favor, seleccione una carrera.');
+            return false;
         }
-        // Contabilizando el total de INPUT TYPE = RADIO
-        else if (tipoElemento == "radio" && tipoNode == "INPUT") {
-            console.log(elemento);
-            totRadio++;
+
+        if (pais === 'Seleccione una opcion') {
+            alert('Por favor, seleccione un país de origen.');
+            return false;
         }
-        // Contabilizando el total de INPUT TYPE = CHECKBOX
-        else if (tipoElemento == "checkbox" && tipoNode == "INPUT") {
-            console.log(elemento);
-            totCheck++;
-        }
-        // Contabilizando el total de INPUT TYPE = FILE
-        else if (tipoElemento == "file" && tipoNode == "INPUT") {
-            console.log(elemento);
-            totFile++;
-        }
-        // Contabilizando el total de INPUT TYPE = DATE
-        else if (tipoElemento == "date" && tipoNode == "INPUT") {
-            console.log(elemento);
-            totDate++;
-        }
-        // Contabilizando el total de INPUT TYPE = SELECT
-        else if (tipoNode == "SELECT") {
-            console.log(elemento);
-            totSelect++;
-        }
+
+        return true;
     }
 
-    let resultado = `
-        Total de input[type="text"] = ${totText}<br>
-        Total de input[type="password"] = ${totPass}<br>
-        Total de input[type="radio"] = ${totRadio}<br>
-        Total de input[type="checkbox"] = ${totCheck}<br>
-        Total de input[type="date"] = ${totDate}<br>
-        Total de input[type="email"] = ${totEmail}<br>
-        Total de select = ${totSelect}<br>
-    `;
+    function recorrerFormulario() {
+        let totText = 0;
+        let totRadio = 0;
+        let totCheck = 0;
+        let totDate = 0;
+        let totSelect = 0;
+        let totFile = 0;
+        let totPass = 0;
+        let totEmail = 0;
 
-    bodyModal.innerHTML = resultado;
-    // Función que permite mostrar el modal de Bootstrap
-    // Esta función es definida por Bootstrap
-    modal.show();
-};
+        const elementos = formulario.elements;
+        const totalElementos = elementos.length;
 
-//agregando eventos a l boton
-button.onclick = () => {
-    recorrerFormulario();
-};
+        for (let index = 0; index < totalElementos; index++) {
+            let elemento = elementos[index];
+            let tipoElemento = elemento.type;
+            let tipoNode = elemento.nodeName;
+
+            if (tipoElemento === "text" && tipoNode === "INPUT") totText++;
+            else if (tipoElemento === "password" && tipoNode === "INPUT") totPass++;
+            else if (tipoElemento === "email" && tipoNode === "INPUT") totEmail++;
+            else if (tipoElemento === "radio" && tipoNode === "INPUT") totRadio++;
+            else if (tipoElemento === "checkbox" && tipoNode === "INPUT") totCheck++;
+            else if (tipoElemento === "file" && tipoNode === "INPUT") totFile++;
+            else if (tipoElemento === "date" && tipoNode === "INPUT") totDate++;
+            else if (tipoNode === "SELECT") totSelect++;
+        }
+
+        const resultado = `
+            Total de input[type="text"] = ${totText}<br>
+            Total de input[type="password"] = ${totPass}<br>
+            Total de input[type="email"] = ${totEmail}<br>
+            Total de input[type="radio"] = ${totRadio}<br>
+            Total de input[type="checkbox"] = ${totCheck}<br>
+            Total de input[type="file"] = ${totFile}<br>
+            Total de input[type="date"] = ${totDate}<br>
+            Total de select = ${totSelect}<br>
+        `;
+
+        bodyModal.innerHTML = resultado;
+        modal.show();
+    }
+});
