@@ -3,10 +3,6 @@ const primerColorFondo = function (event) {
     document.body.style.backgroundColor = event.target.value;
 };
 
-const cambiarColorFondo = function (color) {
-    document.body.style.backgroundColor = color;
-};
-
 // Funciones para modificar el color de los títulos
 const primerColorTitulos = function (event) {
     let colorSeleccionado = event.target.value;
@@ -16,23 +12,9 @@ const primerColorTitulos = function (event) {
     }
 };
 
-const cambiarColorTitulos = function (colorSeleccionado) {
-    const titulos = document.querySelectorAll("h1");
-    for (let index = 0; index < titulos.length; index++) {
-        titulos[index].style.color = colorSeleccionado;
-    }
-};
-
 // Funciones para modificar el color de los párrafos
 const primerColorParrafos = function (event) {
     let colorSeleccionado = event.target.value;
-    const parrafos = document.querySelectorAll("p");
-    for (let index = 0; index < parrafos.length; index++) {
-        parrafos[index].style.color = colorSeleccionado;
-    }
-};
-
-const cambiarColorParrafos = function (colorSeleccionado) {
     const parrafos = document.querySelectorAll("p");
     for (let index = 0; index < parrafos.length; index++) {
         parrafos[index].style.color = colorSeleccionado;
@@ -72,22 +54,16 @@ const startDOM = () => {
     const buttonFondo = document.getElementById("idFondo");
     buttonFondo.value = "#ffffff";
     buttonFondo.addEventListener("input", primerColorFondo, false);
-    buttonFondo.addEventListener("change", cambiarColorFondo, false);
-    buttonFondo.select();
 
     // Obteniendo la referencia del boton cambiar color de títulos
     const buttonTitulos = document.getElementById("idTitulos");
     buttonTitulos.value = "#000000";
     buttonTitulos.addEventListener("input", primerColorTitulos, false);
-    buttonTitulos.addEventListener("change", cambiarColorTitulos, false);
-    buttonTitulos.select();
 
     // Obteniendo la referencia del boton cambiar color de párrafos
     const buttonParrafos = document.getElementById("idParrafos");
     buttonParrafos.value = "#000000";
     buttonParrafos.addEventListener("input", primerColorParrafos, false);
-    buttonParrafos.addEventListener("change", cambiarColorParrafos, false);
-    buttonParrafos.select();
 
     // Obteniendo las referencias de los botones
     const buttonAumentar = document.getElementById("idBtnAumentar");
@@ -96,3 +72,6 @@ const startDOM = () => {
     buttonAumentar.addEventListener("click", aumentarLetra, false);
     buttonDisminuir.addEventListener("click", disminuirLetra, false);
 };
+
+// Inicializar la función startDOM cuando la página cargue
+window.addEventListener("DOMContentLoaded", startDOM);
