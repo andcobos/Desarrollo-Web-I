@@ -105,3 +105,83 @@ document.addEventListener('DOMContentLoaded', function () {
         modal.show();
     }
 });
+
+
+///PRA VER LA INFORMACION
+function recorrerFormulario() {
+    const tabla = document.createElement('table');
+    tabla.classList.add('table', 'table-striped', 'table-bordered');
+
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    const headers = ["Tipo de Elemento", "Cantidad"];
+    headers.forEach(headerText => {
+        const th = document.createElement('th');
+        th.textContent = headerText;
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    tabla.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    
+    let totText = 0, totRadio = 0, totCheck = 0, totDate = 0;
+    let totSelect = 0, totFile = 0, totPass = 0, totEmail = 0;
+
+    const elementos = formulario.elements;
+
+    Array.from(elementos).forEach(elemento => {
+        switch (elemento.type) {
+            case 'text':
+                totText++;
+                break;
+            case 'password':
+                totPass++;
+                break;
+            case 'email':
+                totEmail++;
+                break;
+            case 'radio':
+                totRadio++;
+                break;
+            case 'checkbox':
+                totCheck++;
+                break;
+            case 'file':
+                totFile++;
+                break;
+            case 'date':
+                totDate++;
+                break;
+            case 'select-one':
+                totSelect++;
+                break;
+        }
+    });
+
+    const datos = [
+        ["input[type='text']", totText],
+        ["input[type='password']", totPass],
+        ["input[type='email']", totEmail],
+        ["input[type='radio']", totRadio],
+        ["input[type='checkbox']", totCheck],
+        ["input[type='file']", totFile],
+        ["input[type='date']", totDate],
+        ["select", totSelect]
+    ];
+
+    datos.forEach(dato => {
+        const row = document.createElement('tr');
+        dato.forEach(cellText => {
+            const td = document.createElement('td');
+            td.textContent = cellText;
+            row.appendChild(td);
+        });
+        tbody.appendChild(row);
+    });
+
+    tabla.appendChild(tbody);
+    bodyModal.appendChild(tabla);
+
+    modal.show();
+}
